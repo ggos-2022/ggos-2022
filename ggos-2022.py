@@ -158,6 +158,12 @@ def gaga():
         9
     )
 
+    changing_template = '%{0}s%+{1}d%+{2}d%+{2}d'.format(
+        max_site_length,
+        12,
+        9
+    )
+
     list_of_threads = []
     for site_url in list_of_target_sites:
         thread = SiteThread(site_url)
@@ -192,7 +198,7 @@ def gaga():
             current_exceptions_counter_sum += thread.current_exceptions_counter
             exceptions_counter_sum += thread.exceptions_counter
 
-        info += template % (
+        info += changing_template % (
             'changes from latest update:',
             counter_sum - previous_counter_sum,
             current_exceptions_counter_sum - previous_current_exceptions_counter_sum,
